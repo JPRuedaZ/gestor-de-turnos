@@ -12,16 +12,19 @@ export const searchIdAppointment = async (id: number): Promise<IAppointments | u
     return appointment
 }
 
-export const createAppointment = async ({date, hour, userId}: IAppointments): Promise<number> => {
+export const createAppointment = async ({date, hour, userId}: IAppointments): Promise<string> => {
+    if (!userId) {
+        throw new Error("Debes ingresar el id del usuario para crear turno");
+    } 
     const newTurn: IAppointments = {
-        id: appointments[appointments.length].id + 1,
+        id: appointments.length + 1,
         date,
         hour,
         userId,
         status: 'Active'
     }
     await appointments.push(newTurn);
-    return newTurn.id
+    return `Turno Creado Exitosamente con el id: ${newTurn.id}`	
 }
 
 export const modifyAppointment = async (id: number): Promise<void> => {
