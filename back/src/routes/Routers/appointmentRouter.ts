@@ -1,10 +1,11 @@
 import {Router} from "express";
-import { getTareasAppointments } from "../../controllers/tareas/getTarea";
+import { getTareasAppointments } from "../../controllers/controller";
+import { getTareaAppointmentId } from "../../controllers/tareas/getTarea";
 const appointmentRouter = Router();
 
 
 appointmentRouter.get("/", getTareasAppointments)
-appointmentRouter.get("/:id")
+appointmentRouter.get("/:id", getTareaAppointmentId)
 appointmentRouter.post("/schedule")
 appointmentRouter.put("/cancel")
 appointmentRouter.delete("/")

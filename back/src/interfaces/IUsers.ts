@@ -1,6 +1,9 @@
+import ICredentials from "./ICredentials";
 export default interface IUsers {
-    id: string;
+    id: number;
     name: string;
     email: string;
-    password: string;
+    birthdate: string | number | Date;
+    nDni: number | string;
+    credentialsId: ICredentials['id'];
 }

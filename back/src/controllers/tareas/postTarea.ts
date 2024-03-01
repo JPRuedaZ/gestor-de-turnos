@@ -1,32 +1,18 @@
 import { Request, Response } from "express"; 
-import {users} from "../../utils/users";
-import {appointments} from "../../utils/appointments";
-import IAppointments from "../../interfaces/IAppointments";
-import IUsers from "../../interfaces/IUsers";
+import { createUser } from "../../services/usersService";
+import IUserDto from "../../dto/UserDto";
+import ICredentialDto from "../../dto/CredentialDto";
 
-
-
-export const postTareasUsers = async (req: Request, res: Response): Promise<void> => {
-    const {name, email, password}: IUsers = req.body;
-
-    users.push({
-        id: String(users.length + 1),
-        name,
-        email,
-        password
-    });
-   await res.status(200).json(users);
+export const createUserTarea = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const newCred : ICredentialDto & IUserDto = req.body;
+        const credentials = await createUser(newCred);
+        res.status(200).json(credentials);
+    } catch (error) {
+        res.status(500).json({message: "Error del servidor"});
+    }
 }
 
 
-export const postTareasAppointments = async (req: Request, res: Response): Promise<void> => {
-    const {date, hour, userId}: IAppointments = req.body;
 
-    appointments.push({
-        id: String(appointments.length + 1),
-        date,
-        hour,
-        userId
-    });
-   await res.status(200).json(appointments);
-}
+
