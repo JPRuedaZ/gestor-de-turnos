@@ -20,7 +20,6 @@ export const searchIdUser = async (id: number): Promise<IUsers | undefined> => {
 //FUNCION DE SERVICIOS CREAR USUARIOS
 export const createUser = async (userData: IUserDto & ICredentialDto): Promise<IUsers> => {
    const credentials = await createCredentials(userData);
-   
     const newUser: IUsers = {
         id: users.length + 1,
         name: userData.name,
