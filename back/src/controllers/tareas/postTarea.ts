@@ -3,6 +3,7 @@ import { createUser } from "../../services/usersService";
 import IUserDto from "../../dto/UserDto";
 import ICredentialDto from "../../dto/CredentialDto";
 import { createAppointment } from "../../services/appointmentsService";
+import IAppointments from "../../interfaces/IAppointments";
 
 export const createUserTarea = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -16,7 +17,7 @@ export const createUserTarea = async (req: Request, res: Response): Promise<void
 
 export const createAppointmentTarea = async (req: Request, res: Response): Promise<void> => {
     try {
-        const newAppointment = req.body;
+        const newAppointment: IAppointments = req.body;
         const appointments = await createAppointment(newAppointment);
         res.status(200).json(appointments);
     } catch (error) {
