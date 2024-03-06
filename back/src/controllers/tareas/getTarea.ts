@@ -22,7 +22,7 @@ export const getTareasAppointments = async (req: Request, res: Response): Promis
         const appointments = await getAppointments();
         res.status(200).json(appointments);
     } catch (error) {
-        res.status(500).json({message: "Error del servidor"});
+        res.status(404).json({message: "No se encontraron turnos"});
     }
     
 }
@@ -42,7 +42,7 @@ export const getTareaUserId = async (req: Request, res: Response): Promise<void>
         const users = await searchIdUser(parseInt(id));
         res.status(200).json(users);
     } catch (error) {
-        res.status(500).json({message: "Error del servidor"});
+        res.status(404).json({message: "Usuario no encontrado"});
     }
 }
 
@@ -52,7 +52,7 @@ export const getTareaAppointmentId = async (req: Request, res: Response): Promis
         const appointments = await searchIdAppointment(parseInt(id));
         res.status(200).json(appointments);
     } catch (error) {
-        res.status(500).json({message: "Error del servidor"});
+        res.status(404).json({message: "Turno no encontrado"});
     }
 }
 

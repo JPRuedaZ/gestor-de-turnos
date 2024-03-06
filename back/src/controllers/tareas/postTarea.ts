@@ -10,7 +10,7 @@ export const createUserTarea = async (req: Request, res: Response): Promise<void
     try {
         const newCred : ICredentialDto & IUserDto = req.body;
         const credentials = await createUser(newCred);
-        res.status(200).json(credentials);
+        res.status(201).json(credentials);
     } catch (error) {
         res.status(400).json(`Mensaje de ${error}`);
     }
@@ -20,9 +20,9 @@ export const createAppointmentTarea = async (req: Request, res: Response): Promi
     try {
         const newAppointment: IAppointmentDto = req.body;
         const appointments = await createAppointment(newAppointment);
-        res.status(200).json(appointments);
+        res.status(201).json(appointments);
     } catch (error) {
-        res.status(400).json(`Mensaje de ${error}`);
+        res.status(404).json(`Mensaje de ${error}`);
     }
 }
 
@@ -34,7 +34,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         const user = await findUserByCredentialId(credential.id);
         res.status(200).json({login: true, user});
     } catch (error) {
-        res.status(500).json(`Mensaje de ${error}`);	
+        res.status(400).json(`Mensaje de ${error}`);	
     }
 }
 

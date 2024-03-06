@@ -7,6 +7,6 @@ export const modifyAppointmentTarea = async (req: Request, res: Response): Promi
         const appointments = await modifyAppointment(parseInt(id));
         res.status(200).json(appointments);
     } catch (error) {
-        res.status(500).json({message: "Error del servidor"});
+        res.status(404).json({message: "Turno no encontrado"});
     }
 }
