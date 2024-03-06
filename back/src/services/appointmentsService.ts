@@ -1,7 +1,6 @@
 import IAppointmentDto from "../dto/AppointmentDto";
 import { Appointment } from "../entities/Appointment";
 import { appointmentRepository } from "../repositories/RAppointments";
-import { userRepository } from "../repositories/RUsers";
 import { searchIdUser } from "./usersService";
 
 
