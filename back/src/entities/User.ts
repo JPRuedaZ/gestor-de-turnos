@@ -20,10 +20,7 @@ export class User {
     birthdate: Date;
 
     @Column()
-    nDni: number;
-
-    @Column()
-    credentialsId: number;
+    nDni: string;
 
     @OneToOne(() => Credential)
     @JoinColumn({name: "credentialsId"})
@@ -32,3 +29,4 @@ export class User {
     @OneToMany(() => Appointment, (appointment) => appointment.user)
     appointments: Appointment[];
 }
+

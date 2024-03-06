@@ -1,7 +1,8 @@
-import { TStatus } from "../interfaces/IAppointments";
+import { User } from "../entities/User";
 
 export default interface IAppointmentDto {
-    date: string | number | Date;
-    hour: string | number | Date;
-    status: TStatus;
+    date: string;
+    time: string;
+    userId: number;
+    description: string;
 }

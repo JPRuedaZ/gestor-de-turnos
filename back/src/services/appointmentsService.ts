@@ -1,35 +1,42 @@
-import IAppointments from "../interfaces/IAppointments";
-import { appointments } from "../utils/appointments";
+import IAppointmentDto from "../dto/AppointmentDto";
+import { Appointment } from "../entities/Appointment";
+import { appointmentRepository } from "../repositories/RAppointments";
+import { userRepository } from "../repositories/RUsers";
+import { searchIdUser } from "./usersService";
 
-export const getAppointments = async (): Promise<IAppointments[]> => {
-    // const dataA :IAppointments[] = await appointments;
-    return appointments;
+
+export const getAppointments = async (): Promise<Appointment[]> => {
+    const dataA :Appointment[] = await appointmentRepository.find({
+        relations: {
+            user: true
+        }
+    });
+    return dataA;
 }
 
-export const searchIdAppointment = async (id: number): Promise<IAppointments | undefined> => {
-    const dataA: IAppointments[] = await getAppointments();
-    const appointment: IAppointments | undefined = dataA.find((appointment) => appointment.id === id);
-    return appointment
+export const searchIdAppointment = async (id: number): Promise<Appointment[] | null> => {
+    const appointment: Appointment[] | null = await appointmentRepository.find({ where: {id}, relations: {user: true}});
+    if(!appointment) throw new Error("Turno no encontrado");
+    return appointment;
 }
 
-export const createAppointment = async ({date, hour, userId}: IAppointments): Promise<string> => {
-    if (!userId) {
-        throw new Error("Debes ingresar el id del usuario para crear turno");
+export const createAppointment = async (appointmentData: IAppointmentDto): Promise<Appointment> => {
+    const user = await searchIdUser(appointmentData.userId)
+    const newTurn: Appointment = await appointmentRepository.create(appointmentData);
+    if (user) {
+        newTurn.user = user
     } 
-    const newTurn: IAppointments = {
-        id: appointments.length + 1,
-        date,
-        hour,
-        userId,
-        status: 'Active'
-    }
-    await appointments.push(newTurn);
-    return `Turno Creado Exitosamente con el id: ${newTurn.id}`	
+    await appointmentRepository.save(newTurn);
+    return newTurn;	
 }
 
-export const modifyAppointment = async (id: number): Promise<void> => {
-    const appointment: IAppointments | undefined = await searchIdAppointment(id);
-    if(appointment){
+export const modifyAppointment = async (id: number): Promise<Appointment | null> => {
+    const appointment: Appointment | null = await appointmentRepository.findOneBy({id});
+    if(appointment !== null){
         appointment.status = 'Cancelled';
+    } else{
+        throw new Error("Turno no encontrado");
     }
+    await appointmentRepository.save(appointment);
+    return appointment;
 }

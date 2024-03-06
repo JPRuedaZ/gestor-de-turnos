@@ -13,17 +13,17 @@ export class Appointment {
     date: Date;
 
     @Column()
-    hour: Date;
+    time: string;
 
-    @Column()
-    userId: number;
-
-    @Column()
+    @Column({default : "Active"})
     status: string;
 
+    @Column()
+    description: string;
+
     @ManyToOne(() => User, (user => user.appointments))
-    @JoinColumn({name: "userId"})
     user: User
 
 
 }
+
