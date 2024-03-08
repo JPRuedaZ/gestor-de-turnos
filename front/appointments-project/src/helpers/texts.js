@@ -1,18 +1,18 @@
-const texts = [{ message: "Hello, World!" },
+const texts = [{ odontologyMessage: "Cuidar tus dientes es muy importante, hace parte de tu presentacion." },
 
 {
-    message: "Hello, World!"
+    cardiologyMessage: "Hay que cuidar tu corazon para que todo funcione bien."
 },
 
 {
-    message: "Hello, World!"
+    generalMessage: "Mantenerte en forma, hacerte los examenes necesarios."
 },
 
 {
-    message: "Hello, World!"
+    neumologyMessage: "Los pulmones son una parte vital para tu salud, por eso es importante revisarlos constantemente."
 },
 
 {
-    message: "Hello, World!"
+    fisioterapyMessage: "La fisioterapia es una especialidad que se encarga de mejorar tu estado de salud."
 }];
 export default texts

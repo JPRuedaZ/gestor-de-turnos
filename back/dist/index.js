@@ -1,16 +1,15 @@
 "use strict";
-const calcularAre = (lado1, lado2) => {
-    return lado1 * lado2;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-console.log(calcularAre(5, 6));
-const presentarUsuario = (name, apellido, edad = 'No especificada') => {
-    if (!apellido) {
-        console.log(`Nombre: ${name}, Edad: ${edad}`);
-    }
-    else {
-        console.log(`Nombre: ${name}, Apellido: ${apellido}, Edad: ${edad}`);
-    }
-};
-console.log(presentarUsuario('Homero'));
-console.log(presentarUsuario('Homero', 'Simpson'));
-console.log(presentarUsuario('Homero', 'Simpson', '39'));
+Object.defineProperty(exports, "__esModule", { value: true });
+const server_1 = __importDefault(require("./server"));
+const envs_1 = require("./config/envs");
+require("reflect-metadata");
+const data_source_1 = require("./config/data-source");
+data_source_1.AppDataSource.initialize().then(res => {
+    console.log('Conexion a la base de datos establecida correctamente');
+    server_1.default.listen(envs_1.PORT, () => {
+        console.log(`Server listening on port http://localhost:${envs_1.PORT}`);
+    });
+});
