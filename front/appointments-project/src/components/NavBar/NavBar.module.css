@@ -17,13 +17,12 @@
 
 .logo{
     margin-left: 25px;
-    cursor: pointer;
 }
 
-.logo:hover {
-    transform: translateY(-3px);
+.logo img{
+    width: 60px;
+    height: 60px;
 }
-
 .navBarList {
     display: flex;
     flex-direction: row;

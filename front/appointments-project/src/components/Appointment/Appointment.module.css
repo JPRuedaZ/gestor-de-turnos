@@ -45,3 +45,11 @@
     padding: 3px;
     list-style: none;
 }
+
+.Active {
+    color: greenyellow;
+}
+
+.Inactive {
+    color: red;
+}
