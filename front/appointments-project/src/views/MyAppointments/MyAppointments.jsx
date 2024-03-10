@@ -18,6 +18,7 @@ useEffect(() => {
            {turnos.map(turno => (<Appointment key={turno.id} turnoData={turno}/>))}
            {console.log(turnos)}
         </div>
+        
     )
 }
 

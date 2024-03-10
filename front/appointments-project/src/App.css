@@ -1,9 +1,8 @@
 #root {
-  padding: 0.5rem;
+  padding: 0.25rem;
   text-align: center;
 }
 
 body{
-  background: rgb(18,5,237);
-background: linear-gradient(90deg, rgba(18,5,237,0.8015581232492998) 9%, rgba(56,122,223,0.9640231092436975) 50%, rgba(0,212,255,1) 82%);
+  background: linear-gradient(to right, #b5dfc2, #f5f5f5);
 }
