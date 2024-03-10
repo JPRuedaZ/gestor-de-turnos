@@ -5,6 +5,7 @@ import axios from "axios";
 const MyAppointments = () => {
 const [turnos, setTurnos] = useState([]);
 
+
 useEffect(() => {
     axios.get('http://localhost:3000/appointments')
     .then(res => res.data)

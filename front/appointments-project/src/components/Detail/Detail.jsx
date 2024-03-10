@@ -1,23 +1,19 @@
-// import { useEffect, useState } from "react";
-// import verMenos from "../../assets/vermenos.png";
-// import styles from "./Detail.module.css";
-// import axios from "axios";
+import styles from "./Detail.module.css";
+import images from "../../helpers/images";
+import texts from "../../helpers/texts";
 
-// const Detail = ({handleOnClose}) => {
-//     const [turno, setTurno] = useState({});
+const Detail = ({description}) => {
 
-//     useEffect(() => {
-//         axios.get(`http://localhost:3000/appointments/${id}`)
-//         .then(res => res.data)
-//         .then(data => setTurno(data))
-//         .catch(err => console.log(err))
-//     }, [id])
+    let myImagen = images.find(image => image.ref === description);
+    let myText = texts.find(text => text.ref === description);
 
-//     return (
-//         <div className={styles.detailContainer}>
-//             <button className={styles.verMenos}><img src={verMenos} alt="vermenos" /></button>
-//         </div>
-//     )
-// }
+    return (
+        <div className={styles.detailContainer}>
+            <img src={myImagen ? myImagen.src : ""} alt="cita" />
+            <span>{myText ? myText.message : ""}</span>
+            <p>{description}</p>
+        </div>
+    )
+}
 
-// export default Detail;
+export default Detail;
