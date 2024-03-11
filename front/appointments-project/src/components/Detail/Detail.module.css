@@ -1,0 +1,39 @@
+.detailContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: lightgray;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.detailImageText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.detailImageText img {
+    width: 85px;
+}
+
+.detailAppointment{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 10px;
+}
+
+.detailAppointment h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: blue;
+}

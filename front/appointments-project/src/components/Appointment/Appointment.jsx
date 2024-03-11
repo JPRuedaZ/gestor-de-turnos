@@ -11,6 +11,7 @@ const Appointment = ({turnoData}) => {
     const [statusA, setStatus] = useState(true);
     const [status2, setStatus2] = useState(status);
     const [renderDetail, setRenderDetail] = useState(false);
+    const [hover, setHover] = useState(false);
 
     useEffect(() => {
         if (status2 === "Cancelled") {
@@ -26,7 +27,9 @@ const Appointment = ({turnoData}) => {
         } 
     }
     const handlerClickDetail = () => {
+        setHover(!hover);
         setRenderDetail(!renderDetail);
+        
     }
 
     date = new Date(date);
@@ -35,14 +38,14 @@ const Appointment = ({turnoData}) => {
     
     return (
         <div className={styles.appointmentContainer} >
-            <ul className={styles.appointmentList}>
+            <ul className={`${styles.appointmentList} ${hover ? styles.appointmentHover : ''}`}>
                 <li>{formatDate}</li>
                 <li>{time}</li>
                 {statusA? (<li className={styles.Active}>{status2}</li>):(<li className={styles.Inactive} onClick={handlerClickStatus}>{status2}</li>)}
                 <button className={styles.zoomButton} onClick={handlerClickDetail}><img src={renderDetail ? verMenos : zoomImage} alt="zoom" /></button>
                 <button className={styles.switchButton} onClick={() => handlerClickStatus(id)}><img src={switchImage} alt="switch" /></button>
             </ul>
-            {renderDetail && <Detail description={description}/> }
+            {renderDetail && <Detail turnoData={turnoData} formatDate={formatDate}/> }
         
         </div>
     )
