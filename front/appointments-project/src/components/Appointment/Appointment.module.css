@@ -29,7 +29,6 @@
 
 .appointmentList:hover, .appointmentHover {
     background-color: lightgray;
-    cursor: pointer;
     transition: all ease-in-out 0.3s;
     transform: scale(1.05);
 }
