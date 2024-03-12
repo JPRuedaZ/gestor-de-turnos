@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import validateForm from "../../helpers/validation";
+import styles from "./Register.module.css";
 
 
 const Register = () => {
@@ -67,9 +68,9 @@ const Register = () => {
             {
                 formData.map (({label, name, type,placeholder}) => {
                     return (
-                        <div key={name}>
-                            <label htmlFor={name}>{label}</label>
-                            <input type={type} id={name} name={name} value={formRegister[name]} placeholder={placeholder} onChange={handleOnchange}/>
+                        <div key={name} className={styles.formRegister}>
+                            <label className={styles.formLabel} htmlFor={name}>{label}</label>
+                            <input className={styles.formInput} type={type} id={name} name={name} value={formRegister[name]} placeholder={placeholder} onChange={handleOnchange}/>
                             {errors[name] && <p style={{color: "red"}}>{errors[name]}</p>}
                         </div>
                         
