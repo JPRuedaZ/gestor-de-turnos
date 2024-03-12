@@ -34,7 +34,7 @@ const Register = () => {
         axios.post("http://localhost:3000/users/register",newUser)
         .then(res => res.data)
         .then(userCreate => {
-            alert(`Usuario ha sido creado ${userCreate}✅`);
+            alert(`Ya puedes iniciar sesion ${userCreate.name}✅`);
             setFormRegister(initialState);
         })
         .catch((err) => alert(err.response.data));
