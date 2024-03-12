@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
+import doctorLogin from "../../assets/doctorlogin.jpg";
 
 const Login = () => {
 
@@ -35,13 +36,18 @@ const Login = () => {
     }
 
     return (
-        <div className={styles.login}>
+        <div className={styles.containerLogin}>
+            <div className={styles.loginImage}>
+                <img src={doctorLogin} alt="doctor"/>
+            </div>
+            <div className={styles.login}>
             <h2 className={styles.title}>Inicia Sesión</h2>
             <label className={styles.label}>Username</label>
             <input className={styles.input} type="text" name="username" value={formLogin.username} placeholder="Write your username" onChange={handleOnchange}/>
             <label className={styles.label}>Password</label>
             <input className={styles.input} type="password" name="password" value={formLogin.password} placeholder="Write your password" onChange={handleOnchange}/>
             <button className={styles.button} type="submit" onClick={handleOnSubmit}>Login</button>
+            </div>
         </div>
     )
 }
