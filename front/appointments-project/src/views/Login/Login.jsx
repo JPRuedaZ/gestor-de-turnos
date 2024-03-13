@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
-import doctorLogin from "../../assets/doctorlogin.jpg";
 
 const Login = () => {
 
@@ -37,9 +36,6 @@ const Login = () => {
 
     return (
         <div className={styles.containerLogin}>
-            <div className={styles.loginImage}>
-                <img src={doctorLogin} alt="doctor"/>
-            </div>
             <div className={styles.login}>
             <h2 className={styles.title}>Inicia Sesión</h2>
             <label className={styles.label}>Username</label>
