@@ -7,6 +7,7 @@ import MyAppointments from './views/MyAppointments/MyAppointments'
 import Register from './views/Register/Register'
 import Landin from './views/Landing/Landing'
 import Error from './views/Error/Error'
+import NewAppointment from './views/NewAppointment/NewAppointment'
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
          <Route path="/login" element={<Login />}/>
          <Route path="/appointments" element={<MyAppointments />}/>
          <Route path="/register" element={<Register />}/>
+         <Route path="/appointments/new" element={<NewAppointment />}/>
          <Route path="*" element={<Error />}/>
         </Routes>
       </div>

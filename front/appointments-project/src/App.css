@@ -3,9 +3,5 @@
 }
 
 body{
-  background-image: url("../../assets/medicina.jpg");
-  background-attachment:inherit;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../src/assets/fondo.jpg");
 }

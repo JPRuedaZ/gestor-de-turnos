@@ -6,6 +6,7 @@ import axios from "axios";
 import Detail from "../Detail/Detail";
 import verMenos from "../../assets/vermenos.png";
 
+
 const Appointment = ({turnoData}) => {
     let {id,date,time,status,description} = turnoData;
     const [statusA, setStatus] = useState(true);
@@ -43,6 +44,7 @@ const Appointment = ({turnoData}) => {
     
     return (
         <div className={styles.appointmentContainer} >
+            
             <ul className={`${styles.appointmentList} ${renderDetail ?  styles.appointmentHover : ''}`}>
                 <li>{formatDate}</li>
                 <li>{time}</li>

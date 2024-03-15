@@ -1,0 +1,25 @@
+.newAppointment {
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 30px;
+    margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newAppointment:hover {
+  background-color: #68cf6b; /* Color de fondo al pasar el cursor */
+}
+
+.newAppointment a {
+  color: white;
+  text-decoration: none; /* Quita el subrayado */
+}

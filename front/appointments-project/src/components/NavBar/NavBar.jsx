@@ -2,7 +2,11 @@ import styles from "./NavBar.module.css";
 import profileImage from "../../assets/profile.png";
 import hospitalLogo from "../../assets/medical-logo.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const NavBar = () => {
+
+    const login = useSelector((state) => state.actualUser.userData.login);
+
     return (
     <div className={styles.navBar}>
         <div className={styles.logo}>
@@ -11,7 +15,7 @@ const NavBar = () => {
         <div>
             <ul className={styles.navBarList}>
                 <Link to="/home">HOME</Link>
-                <Link to="/appointments">APPOINTMENTS</Link>
+                {login ? <Link to="/appointments">APPOINTMENTS</Link> : null}
                 <Link to="/services">SERVICES</Link>
                 <Link to="/about">ABOUT US</Link>
             </ul>

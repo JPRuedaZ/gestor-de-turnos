@@ -1,13 +1,18 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-    const [formLogin, setFormLogin] = useState({
+    const initialState = {
         username: "",
         password: ""
-    });
+    }
+
+    const [formLogin, setFormLogin] = useState(initialState);
 
     const handleOnchange = (event) => {
         console.log(event);
@@ -15,23 +20,20 @@ const Login = () => {
         setFormLogin({...formLogin, [name]: value});
     };
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handleOnSubmit = (event) => {
         event.preventDefault();
 
         axios.post("http://localhost:3000/users/login", formLogin)
         .then(res => res.data)
-        .then(userLogin => {
-            alert(`Bienvenido ${userLogin.user.name}✅`);
-            setFormLogin({
-                username: formLogin.username,
-                password: formLogin.password
-            })
+        .then(data => {
+            dispatch(setUserData(data));
+            alert(`Bienvenido ${data.user.name}✅`);
+            navigate("/home");
         })
         .catch((err) => alert(err.response.data));
-
-       
-        
-        
     }
 
     return (
