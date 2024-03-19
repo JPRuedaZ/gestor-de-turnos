@@ -2,6 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import validateForm from "../../helpers/validation";
 import styles from "./Register.module.css";
+import fonendo from "../../assets/fonendo.png";
+import maletinmedico from "../../assets/maletinmedico.png";
+import revisionmedica from "../../assets/revisionmedica.png";
+import tarromedicinas from "../../assets/tarromedicinas.png";
+import inyeccion from "../../assets/inyeccion.png";
+import virus from "../../assets/virus.png";
+import dna from "../../assets/dna.png";
+
 
 
 const Register = () => {
@@ -63,23 +71,34 @@ const Register = () => {
     ];
 
     return (
-        <form>
-            <h2>Formulario de Registro</h2>
-            {
-                formData.map (({label, name, type,placeholder}) => {
-                    return (
-                        <div key={name} className={styles.formRegister}>
-                            <label className={styles.formLabel} htmlFor={name}>{label}</label>
-                            <input className={styles.formInput} type={type} id={name} name={name} value={formRegister[name]} placeholder={placeholder} onChange={handleOnchange}/>
-                            {errors[name] && <p style={{color: "red"}}>{errors[name]}</p>}
-                        </div>
-                        
-                    )
-                })
-            }
-            <button type="submit" disabled={Object.keys(errors).some(elem => !errors[elem])} onClick={handleOnSubmit}>Register</button>
-            <button type="reset" onClick={handleOnReset}>Reset</button>
-        </form>
+        <div className={styles.container}>
+            <div className={styles.images}>
+                <img src={fonendo} alt="doctor"/>
+                <img src={maletinmedico} alt="medical"/>
+                <img src={revisionmedica} alt="doctor"/>
+                <img src={tarromedicinas} alt="doctor"/>
+                <img src={inyeccion} alt="doctor"/>
+                <img src={virus} alt="doctor"/>
+
+            </div>
+            <form>
+                <h2>Formulario de Registro</h2>
+                {
+                    formData.map (({label, name, type,placeholder}) => {
+                        return (
+                            <div key={name} className={styles.formRegister}>
+                                <label className={styles.formLabel} htmlFor={name}>{label}</label>
+                                <input className={styles.formInput} type={type} id={name} name={name} value={formRegister[name]} placeholder={placeholder} onChange={handleOnchange}/>
+                                {errors[name] && <p style={{color: "red"}}>{errors[name]}</p>}
+                            </div>
+                            
+                        )
+                    })
+                }
+                <button className={styles.button} type="submit" disabled={Object.keys(errors).some(elem => !errors[elem])} onClick={handleOnSubmit}>Register</button>
+                <button className={styles.button} type="reset" onClick={handleOnReset}>Reset</button>
+            </form>
+        </div>
     )
 }
 

@@ -50,9 +50,9 @@ const handleOnchange = (event) => {
     setErrors(validateAppointment({...formAppointment, [name]: value}));
 }
     return (
-        <div>
+        <div className={styles.container}>
             <h1>New Appointment</h1>
-            <form>
+            <form className={styles.form}>
                 <div>
                     <label>Date: </label>
                     <input type="date" id="date" name="date" value={formAppointment.date} onChange={handleOnchange} min={new Date().toISOString().split("T")[0]} />
