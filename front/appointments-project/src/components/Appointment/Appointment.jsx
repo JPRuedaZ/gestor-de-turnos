@@ -39,7 +39,8 @@ const Appointment = ({turnoData}) => {
     }
 
     date = new Date(date);
-    const formatDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+    console.log(date);
+    const formatDate = `${date.getDate()}/${date.getMonth() +1}/${date.getFullYear()}`;
 
     
     return (

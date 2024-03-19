@@ -1,0 +1,10 @@
+.formAppointmentButton {
+    margin-top: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+}
+
+.error {
+    color: red;
+}

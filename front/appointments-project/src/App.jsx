@@ -11,7 +11,7 @@ import NewAppointment from './views/NewAppointment/NewAppointment'
 
 function App() {
   const location = useLocation();
-  const validRoutes = ["/home", "/login", "/appointments", "/register"]; // Lista de rutas válidas en tu aplicación
+  const validRoutes = ["/home", "/login", "/appointments", "/register", "/appointments/new"]; // Lista de rutas válidas en tu aplicación
 
   let isErrorPage = validRoutes.includes(location.pathname);
  
