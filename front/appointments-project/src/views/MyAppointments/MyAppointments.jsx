@@ -4,19 +4,28 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserAppointments } from "../../redux/userSlice.js";
 import styles from "./MyAppointments.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyAppointments = () => {
 
 const actualUserId = useSelector((state) => state.actualUser?.userData?.user?.id);
 const appointmentsUser = useSelector((state) => state.actualUser?.userAppointments);
+const loginVerification = useSelector((state) => state.actualUser?.userData?.login);
 
+const navigate = useNavigate();
 const dispatch = useDispatch();
+
+useEffect(() => {
+    if(!loginVerification) {
+        navigate("/login");
+    }
+}, [])
 
 useEffect(() => {
     axios.get(`http://localhost:3000/users/${actualUserId}`)
     .then(res => res.data.appointments)
     .then(appointments =>dispatch(setUserAppointments(appointments)))
+
     .catch(err => console.log(err))
 }, [])   
 

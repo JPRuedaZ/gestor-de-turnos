@@ -16,6 +16,7 @@ const NavBar = () => {
       dispatch(setUserData({}));
       dispatch(setUserAppointments([]));
       navigate("/home");
+      localStorage.removeItem("userData");
     }
 }
 

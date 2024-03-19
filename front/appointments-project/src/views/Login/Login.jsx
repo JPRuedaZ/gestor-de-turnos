@@ -30,6 +30,7 @@ const Login = () => {
         .then(res => res.data)
         .then(data => {
             dispatch(setUserData(data));
+            localStorage.setItem("userData", JSON.stringify(data)); 
             alert(`Bienvenido ${data.user.name}✅`);
             navigate("/home");
         })
