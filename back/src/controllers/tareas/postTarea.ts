@@ -5,11 +5,13 @@ import ICredentialDto from "../../dto/CredentialDto";
 import { createAppointment } from "../../services/appointmentsService";
 import IAppointmentDto from "../../dto/AppointmentDto";
 import { validarCredenciales } from "../../services/credentialsService";
+import emailMessage from "../../utils/emailMessage";
 
 export const createUserTarea = async (req: Request, res: Response): Promise<void> => {
     try {
         const newCred : ICredentialDto & IUserDto = req.body;
         const credentials = await createUser(newCred);
+        emailMessage(newCred.email)
         res.status(201).json(credentials);
     } catch (error) {
         res.status(400).json(`Mensaje de ${error}`);
