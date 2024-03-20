@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura como desees */
+    width: 80%; /* Ajusta el ancho como desees */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.characterAnimationContainer {
+    position: relative;
+}
+
+.characterAnimation {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.speechBubble {
+    position: absolute;
+    top: -50px; /* Ajusta la posición del globo de diálogo como desees */
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.button {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: purple;
+    background-color: rgba(255, 166, 0, 0.938);
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgba(255, 255, 255, 0.333);
+    border-radius: 40px 40px 40px 40px;
+    padding: 16px 24px 16px 28px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.button:hover {
+    color: purple;
+    background-color: yellow;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+   }
+   
+.button:active {
+    box-shadow: none;
+   }
