@@ -21,16 +21,17 @@
     height: auto;
     margin: 5px;
     padding: 5px;
-    background-color: grey;
+    background-color: #F9E8C9;
     border-radius: 5px;
-    border-color: black;
+    border-color: skyblue;
     border-style: solid;
     border-width: 1px;
     list-style: none;
 }
 
 .appointmentList:hover, .appointmentHover {
-    background-color: lightgray;
+    cursor: pointer;
+    background-color: #265073;
     transition: all ease-in-out 0.3s;
     transform: scale(1.05);
 }

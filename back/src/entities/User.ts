@@ -1,5 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn  } from "typeorm";
-
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn  } from "typeorm";
 import { Appointment } from "./Appointment";
 import { Credential } from "./Credential";
 
@@ -21,7 +20,7 @@ export class User {
 
     @Column()
     nDni: string;
-
+    
     @OneToOne(() => Credential)
     @JoinColumn({name: "credentialsId"})
     credentials: Credential;
