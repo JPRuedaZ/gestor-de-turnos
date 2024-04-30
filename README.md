@@ -1,4 +1,4 @@
-# Proyecto Integrador - Módulo 3
+# Proyecto Integrador - Gestor de Turnos
 
 ## Aplicación de Gestión de Turnos
 
