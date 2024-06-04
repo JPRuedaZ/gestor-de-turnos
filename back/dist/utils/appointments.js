@@ -20,7 +20,7 @@ exports.appointments = [
         id: 3,
         date: '2024-01-01',
         hour: '10:00',
-        userId: 1,
+        userId: 2,
         status: 'Active'
     }
 ];
