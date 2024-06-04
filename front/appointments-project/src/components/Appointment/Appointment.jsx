@@ -25,7 +25,7 @@ const Appointment = ({turnoData}) => {
             let respuesta = confirm("Estas seguro de cancelar la cita?");
             if (respuesta === true) {
             setStatus2("Cancelled");
-            axios.put(`http://localhost:3000/appointments/cancel`, {id})
+            axios.put(`https://gestor-turnos-back.onrender.com/appointments/cancel`, {id})
             
             } else {
                 setStatus(true);

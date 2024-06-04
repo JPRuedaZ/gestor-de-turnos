@@ -29,7 +29,7 @@ const handleOnSubmit = (event) => {
         description: formAppointment.description
     }
 
-    axios.post("http://localhost:3000/appointments/schedule",newAppointment)
+    axios.post("https://gestor-turnos-back.onrender.com/appointments/schedule",newAppointment)
     .then(res => res.data)
     .then(appointmentCreate => {
         alert(`Se agendara la cita el ${appointmentCreate.date} a las ${appointmentCreate.time}✅`);

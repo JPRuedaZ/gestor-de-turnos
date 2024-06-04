@@ -40,7 +40,7 @@ const Register = () => {
             password: formRegister.password
         }
         
-        axios.post("http://localhost:3000/users/register",newUser)
+        axios.post("https://gestor-turnos-back.onrender.com/users/register",newUser)
         .then(res => res.data)
         .then(userCreate => {
             alert(`Ya puedes iniciar sesion ${userCreate.name}✅`);

@@ -22,7 +22,7 @@ useEffect(() => {
 }, [])
 
 useEffect(() => {
-    axios.get(`http://localhost:3000/users/${actualUserId}`)
+    axios.get(`https://gestor-turnos-back.onrender.com/users/${actualUserId}`)
     .then(res => res.data.appointments)
     .then(appointments =>dispatch(setUserAppointments(appointments)))
 
